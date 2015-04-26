@@ -28,4 +28,24 @@ for(i in 1:dim(post.wlng)[1]){
   match.matrix[post.wlng[i,]$u2_id, post.wlng[i,]$u1_id] = post.wlng[i,]$u2_willing
 }
 
+#match.adjacency = matrix(0, nrow=5878, ncol=3)
+u1 = rep(NA, 5078)
+u2 = rep(NA, 5078)
+willing = rep(NA, 5078)
+counter = 1
+for(i in 1:dim(match.matrix)[1]){
+  for(j in 1:dim(match.matrix)[2]){
+    if(!is.na(match.matrix[i,j])){
+      u1[counter] = i
+      u2[counter] = j
+      willing[counter] = match.matrix[i,j]
+      counter = counter + 1
+    }
+  }
+}
+
+match.pairs = data.frame(u1, u2, willing)
+
 rm(post.wlng)
+rm(pairs)
+gc()
