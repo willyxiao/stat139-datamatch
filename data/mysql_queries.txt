@@ -1,0 +1,22 @@
+# user_data.csv
+SELECT id, dorm_id, class_year_id, gender_id, match_with_id, created_at, LENGTH(dating)>1 AS dating 
+  INTO OUTFILE 'user_data.csv'
+    FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
+    LINES TERMINATED BY '\n'
+  FROM users;
+
+# posterior_willingness.csv
+SELECT *
+  INTO OUTFILE 'posterior_willingness.csv'
+    FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
+    LINES TERMINATED BY '\n'
+  FROM outings;
+
+# user_personality.csv
+SELECT id, scores
+  INTO OUTFILE 'user_personality.csv'
+    FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
+    LINES TERMINATED BY '\n'
+  FROM users;
+
+
