@@ -35,6 +35,4 @@ user.personality = na.omit(read.csv('data/user_personality.csv',
                                                'house',
                                                'oncampus')))
 
-user.similarities = read.csv('data/user_similarities.csv',
-                             header=T)
-
+load("data/user_similarities.RData") # user.similarities
