@@ -11,6 +11,11 @@ female = rep(NA, data.length)
 
 dorm_id = rep(NA, data.length)
 
+same.class = rep(NA, data.length)
+same.house = rep(NA, data.length)
+
+same.questions = rep(NA, data.length)
+
 soph = rep(NA, data.length) # 32
 junior = rep(NA, data.length) # 33
 senior = rep(NA, data.length) # 34
@@ -42,6 +47,15 @@ for(i in 1:dim(post.wlng)[1]){
   female[i*2 - 1] = as.numeric(u1$gender_id == 38)
   female[i*2] = as.numeric(u2$gender_id == 38)
   
+  same.class[i*2 - 1] = as.numeric(u1$class_year_id == u2$class_year_id)
+  same.class[i*2] = as.numeric(u1$class_year_id == u2$class_year_id)
+  
+  same.house[i*2 - 1] = as.numeric(u1$dorm_id == u2$dorm_id)
+  same.house[i*2] = as.numeric(u1$dorm_id == u2$dorm_id)
+  
+  same.questions[i*2 - 1] = as.numeric(user.similarities[i,]$similarity)
+  same.questions[i*2] = as.numeric(user.similarities[i,]$similarity)
+  
   id[i*2 -1] = as.numeric(u1$id)
   id[i*2] = as.numeric(u2$id)
   
@@ -66,4 +80,5 @@ for(i in 1:dim(post.wlng)[1]){
   dating[i*2] = as.numeric(u2$dating)
 }
 
-individual.data = data.frame(id, Y, straight, female, dorm_id, soph, junior, senior, grad, alum, seconds_after_start, dating)
+individual.data = data.frame(id, Y, straight, female, dorm_id, soph, junior, senior, grad, alum, seconds_after_start, dating, same.house, same.class, same.questions)
+individual.data = merge(individual.data, user.personality, by="id")
