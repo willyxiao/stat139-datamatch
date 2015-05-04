@@ -36,21 +36,21 @@ is.straight = function(gender_id, match_with_id){
   as.numeric((gender_id == 37 && match_with_id == 40) || (gender_id == 38 && match_with_id == 39))
 }
 
-prior.wlng.map = function(wlng.code){
-  if(wlng.code == 151){
-    return(0)
-  } else if (wlng.code == 152){
-    return(-2)
-  } else if (wlng.code == 153){
-    return(-1)
-  } else if (wlng.code == 154){
-    return(1)
-  } else if (wlng.code == 155){
-    return(2)
-  } else{
-    stop("Invalid willingness code")
-  }
-}
+# prior.wlng.map = function(wlng.code){
+#   if(wlng.code == 151){
+#     return(0)
+#   } else if (wlng.code == 152){
+#     return(-2)
+#   } else if (wlng.code == 153){
+#     return(-1)
+#   } else if (wlng.code == 154){
+#     return(1)
+#   } else if (wlng.code == 155){
+#     return(2)
+#   } else{
+#     stop("Invalid willingness code")
+#   }
+# }
 for(i in 1:dim(post.wlng)[1]){
   if(i%%100 == 0){
     print(i)
@@ -64,8 +64,8 @@ for(i in 1:dim(post.wlng)[1]){
   straight[i*2 - 1] = is.straight(u1$gender_id, u1$match_with_id)
   straight[i*2] = is.straight(u2$gender_id, u2$match_with_id)
   
-  explicit.wlng[i*2 - 1] = prior.wlng.map(prior.wlng$answer_id[prior.wlng$user_id == u1$id])
-  explicit.wlng[i*2] = prior.wlng.map(prior.wlng$answer_id[prior.wlng$user_id == u2$id])
+#   explicit.wlng[i*2 - 1] = prior.wlng.map(prior.wlng$answer_id[prior.wlng$user_id == u1$id])
+#   explicit.wlng[i*2] = prior.wlng.map(prior.wlng$answer_id[prior.wlng$user_id == u2$id])
   
   female[i*2 - 1] = as.numeric(u1$gender_id == 38)
   female[i*2] = as.numeric(u2$gender_id == 38)
@@ -106,5 +106,5 @@ for(i in 1:dim(post.wlng)[1]){
   dating[i*2] = as.numeric(u2$dating)
 }
 
-master.frame = data.frame(id, Y, straight, female, dorm_id, soph, junior, senior, grad, alum, seconds_after_start, dating, same.house, same.class, same.questions, compat.score, explicit.wlng)
+master.frame = data.frame(id, Y, straight, female, dorm_id, soph, junior, senior, grad, alum, seconds_after_start, dating, same.house, same.class, same.questions, compat.score)
 master.frame = merge(master.frame, user.personality, by="id")
