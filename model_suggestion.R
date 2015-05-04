@@ -1,8 +1,6 @@
 source('config.R')
 
-# LOAD DATA
-load('data/individual_data.RData')
-
-model.suggestion = TODO
+model.suggestion = glm(Y~compat.score,
+                       family=binomial(),
+                       data=master.frame)
 summary(model.suggestion)
-
