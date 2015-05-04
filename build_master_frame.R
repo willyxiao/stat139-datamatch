@@ -85,8 +85,8 @@ for(i in 1:dim(post.wlng)[1]){
   id[i*2 -1] = as.numeric(u1$id)
   id[i*2] = as.numeric(u2$id)
   
-  dorm_id[i*2 -1] = as.numeric(u1$dorm_id)
-  dorm_id[i*2] = as.numeric(u2$dorm_id)
+#   dorm_id[i*2 -1] = as.numeric(u1$dorm_id)
+#   dorm_id[i*2] = as.numeric(u2$dorm_id)
 
   soph[i*2 -1] = as.numeric(u1$class_year_id == 31)
   soph[i*2] = as.numeric(u2$class_year_id == 31)
@@ -106,5 +106,5 @@ for(i in 1:dim(post.wlng)[1]){
   dating[i*2] = as.numeric(u2$dating)
 }
 
-master.frame = data.frame(id, Y, straight, female, dorm_id, soph, junior, senior, grad, alum, seconds_after_start, dating, same.house, same.class, same.questions, compat.score)
+master.frame = data.frame(id, Y, straight, female, soph, junior, senior, grad, alum, seconds_after_start, dating, same.house, same.class, same.questions, compat.score)
 master.frame = merge(master.frame, user.personality, by="id")
