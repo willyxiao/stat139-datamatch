@@ -34,3 +34,6 @@ user.personality = read.csv('data/user_personality.csv',
                                        'age',
                                        'house',
                                        'oncampus'))
+
+user.similarities = read.csv('data/user_similarities.csv',
+                             header=T)
