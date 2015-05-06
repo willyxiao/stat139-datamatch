@@ -2,6 +2,6 @@ source('config.R')
 
 model.truth = glm(Y~same.questions,
                   family=binomial(),
-                  data=individual.data)
+                  data=master.frame)
 
 summary(model.truth)
