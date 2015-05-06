@@ -10,3 +10,4 @@ source('model_truth.R')
 
 load('data/best_model.RData')
 load('data/model_inherent.RData')
+load('data/model_base_BIC.RData')
