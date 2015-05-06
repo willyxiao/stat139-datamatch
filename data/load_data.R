@@ -1,4 +1,4 @@
-users = read.csv('data/user_data.csv',
+users = read.csv('user_data.csv',
                  header=F,
                  col.names=c('id', 
                              'dorm_id', 
@@ -8,14 +8,14 @@ users = read.csv('data/user_data.csv',
                              'created_at', 
                              'dating'))
 
-prior.wlng = read.csv('data/prior_willingness.csv',
+prior.wlng = read.csv('prior_willingness.csv',
                       header=F,
                       col.names=c('user_id', 'answer_id'))
-post.wlng = read.csv('data/posterior_willingness.csv',
+post.wlng = read.csv('posterior_willingness.csv',
                      header=F,
                      col.names=c('u1_id', 'u2_id', 'u1_willing', 'u2_willing'))
 
-user.personality = na.omit(read.csv('data/user_personality.csv',
+user.personality = na.omit(read.csv('user_personality.csv',
                                     header=F,
                                     col.names=c('id',
                                                'ambitious',
@@ -35,4 +35,4 @@ user.personality = na.omit(read.csv('data/user_personality.csv',
                                                'house',
                                                'oncampus')))
 
-load("data/user_similarities.RData") # user.similarities
+load("user_similarities.RData") # user.similarities

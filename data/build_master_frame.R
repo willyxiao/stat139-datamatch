@@ -1,4 +1,4 @@
-source('config.R')
+source('../config.R')
 source('load_data.R')
 library(chron)
 
