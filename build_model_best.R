@@ -6,7 +6,7 @@ base.model = glm(Y~.-id-age-house-oncampus-kinky-creative-twisted,
                  family=binomial(),
                  data=master.frame)
 
-best.model = step(base.model,
+model.best = step(base.model,
                   scope=list(lower=glm(Y~1,family=binomial(),data=master.frame),
                              upper=glm(Y~(.-id-age-house-oncampus-kinky-creative-twisted)^2,family=binomial(),data=master.frame)),
                   direction="both")
@@ -15,6 +15,14 @@ model.base.BIC = step(base.model,
                                  upper=glm(Y~(.-id-age-house-oncampus-kinky-creative-twisted),family=binomial(),data=master.frame)),
                       direction="both",
                       k=log(nrow(master.frame)))
+
+model.BIC.interactions = step(model.base.BIC, 
+                              scope=list(lower=glm(Y~1,family=binomial(),data=master.frame),
+                                                          upper=glm(Y~(.-id-age-house-oncampus-kinky-creative-twisted)^2,family=binomial(),data=master.frame)),
+                                               direction="both",
+                                               k=log(nrow(master.frame)))
+#^this model was exactly the same as model.base.BIC -the step function ended up not using any interaction
+#terms when using BIC as it's criteron
 
 
 base.model.AIC_no_interactions = step(base.model,
