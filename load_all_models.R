@@ -10,6 +10,5 @@ source('model_truth.R')
 source('model_null.R')
 
 load('data/model_best.RData')
-load('data/model_inherent.RData')
 load('data/model_base_BIC.RData')
 load('data/model_base_AIC.RData')
