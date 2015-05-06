@@ -1,4 +1,4 @@
-source('config.R')
+source('../config.R')
 
 base.model = glm(Y~straight+female+soph+junior+senior+grad+alum+seconds_after_start+dating+same.house+same.class+matchready,
                  family=binomial(),

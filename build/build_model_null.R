@@ -1,4 +1,4 @@
-source('config.R')
+source('../config.R')
 
 model.null = glm(Y~1,
                   family=binomial(),

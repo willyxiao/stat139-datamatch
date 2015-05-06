@@ -1,4 +1,4 @@
-source('config.R')
+source('../config.R')
 
 model.suggestion = glm(Y~compat.score,
                        family=binomial(),

@@ -1,4 +1,4 @@
-source('config.R')
+source('../config.R')
 
 #Let's get rid of our variables with high correlation (kinky, creative, and twisted were highly 
 #correlated with social)

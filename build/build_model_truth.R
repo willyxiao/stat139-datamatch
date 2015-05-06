@@ -1,4 +1,4 @@
-source('config.R')
+source('../config.R')
 
 model.truth = glm(Y~same.questions,
                   family=binomial(),
