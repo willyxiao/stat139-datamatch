@@ -12,3 +12,7 @@ Stat139 Project by Kevin, Fred, Willy
 * data/*
 
 > Includes raw data, look at data/build_master_frame to check out the master frame
+
+* writeup/*
+
+> Includes writeup files and R-code for graphing and cross-validation

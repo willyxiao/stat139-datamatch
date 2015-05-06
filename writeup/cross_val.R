@@ -1,5 +1,5 @@
-source('config.R')
-source('load_all_models.R')
+source('../config.R')
+source('../load_all_models.R')
 
 cross.val = function(models, ntests=10000, train.size=4000){
   prop.correct = matrix(NA, nrow=length(models), ncol=ntests)
