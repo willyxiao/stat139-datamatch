@@ -6,7 +6,7 @@ cross.val = function(models, ntests=10000, train.size=4000){
   n = nrow(master.frame)
   
   for(i in 1:ntests){
-    if(i%%100 == 0){
+    if(i%%10 == 0){
       print(i)
     }
     reorder = sample(n)
@@ -14,10 +14,10 @@ cross.val = function(models, ntests=10000, train.size=4000){
     test.set = master.frame[reorder[(train.size+1):n],]
 
     model.error = function(model){
-      mean(abs(test.set$Y - 1/(1+exp(predict(glm(formula(model),
+      mean((test.set$Y - 1/(1+exp(predict(glm(formula(model),
                                                      family=binomial(),
                                                      data=train.set),
-                                                 test.set)))))
+                                                 test.set))))^2)
     }
     
     prop.correct[,i] = do.call("cbind",lapply(models, model.error))
