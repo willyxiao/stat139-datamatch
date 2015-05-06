@@ -14,10 +14,10 @@ cross.val = function(models, ntests=10000, train.size=4000){
     test.set = master.frame[reorder[(train.size+1):n],]
 
     model.error = function(model){
-      mean((test.set$Y - 1/(1+exp(-predict(glm(formula(model),
+      mean(sqrt((test.set$Y - 1/(1+exp(-predict(glm(formula(model),
                                                      family=binomial(),
                                                      data=train.set),
-                                                 test.set))))^2)
+                                                 test.set))))^2))
     }
     
     prop.correct[,i] = do.call("cbind",lapply(models, model.error))
