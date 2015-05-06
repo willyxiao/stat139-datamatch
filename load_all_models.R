@@ -8,5 +8,6 @@ source('model_sexuality.R')
 source('model_suggestion.R')
 source('model_truth.R')
 
-load('data/best_model.RData')
+load('data/model_best.RData')
 load('data/model_inherent.RData')
+load('data/model_base_BIC.RData')
